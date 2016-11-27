@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6e432171ecb84c0cb6c9e4dd21d7756b" Name="Diagram1">
+        <EntityTypeShape EntityType="eLargesseModel.Address" Width="1.5" PointX="7.5" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLargesseModel.Article" Width="1.5" PointX="12" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLargesseModel.ArticleCategory" Width="1.5" PointX="12" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLargesseModel.AspNetRole" Width="1.5" PointX="12.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLargesseModel.AspNetUserClaim" Width="1.5" PointX="17.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLargesseModel.AspNetUserLogin" Width="1.5" PointX="17.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLargesseModel.AspNetUser" Width="1.5" PointX="15" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLargesseModel.Cart" Width="1.5" PointX="7.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLargesseModel.Category" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLargesseModel.CategoryGroup" Width="1.5" PointX="14.25" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLargesseModel.Client" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLargesseModel.Comment" Width="1.5" PointX="9.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLargesseModel.Country" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLargesseModel.Manufacturer" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLargesseModel.Order" Width="1.5" PointX="7.5" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLargesseModel.OrderDetail" Width="1.5" PointX="7.5" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLargesseModel.Post" Width="1.5" PointX="7.5" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLargesseModel.Product" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLargesseModel.ProductView" Width="1.5" PointX="7.5" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLargesseModel.SubCategory" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLargesseModel.Wishlist" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLargesseModel.WishlistItem" Width="1.5" PointX="10.5" PointY="6.625" IsExpanded="true" />
+        <AssociationConnector Association="eLargesseModel.FK_Address_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="eLargesseModel.FK_Article_ToComment" ManuallyRouted="false" />
+        <AssociationConnector Association="eLargesseModel.FK_CategoryGroup_ToArticle" ManuallyRouted="false" />
+        <AssociationConnector Association="eLargesseModel.FK_Table_ToPost" ManuallyRouted="false" />
+        <AssociationConnector Association="eLargesseModel.FK_CategoryGroup_ToCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="eLargesseModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="eLargesseModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="eLargesseModel.FK_Cart_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="eLargesseModel.FK_Cart_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="eLargesseModel.FK_SubCategory_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="eLargesseModel.FK_Comment_ToUser" ManuallyRouted="false" />
+        <AssociationConnector Association="eLargesseModel.FK_Order_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="eLargesseModel.FK_Post_ToClient" ManuallyRouted="false" />
+        <AssociationConnector Association="eLargesseModel.FK_Wishlist_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="eLargesseModel.FK_Comment_ToPost" ManuallyRouted="false" />
+        <AssociationConnector Association="eLargesseModel.FK_Product_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="eLargesseModel.FK_OrderDetail_ToProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="eLargesseModel.FK_Product_SubCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="eLargesseModel.FK_ProductViews_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="eLargesseModel.FK_WishlistItem_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="eLargesseModel.FK_WishlistItem_Wishlist" ManuallyRouted="false" />
+        <AssociationConnector Association="eLargesseModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

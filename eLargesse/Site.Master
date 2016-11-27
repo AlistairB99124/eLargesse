@@ -1,0 +1,252 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="eLargesse.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%:Page.Title %> - eLargesse</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css' />
+    <link href="img/Site/Logo_Short.ico" rel="shortcut icon" type="image/x-icon" />
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+                <asp:ScriptReference Path="~/Scripts/owl.carousel.min.js" />
+                <asp:ScriptReference Path="~/Scripts/jquery.sticky.js" />
+                <asp:ScriptReference Path="~/Scripts/main.js" />
+                <asp:ScriptReference Path="~/Scripts/jquery.easing.1.3.min.js" />
+            </Scripts>
+        </asp:ScriptManager>
+        <div class="header-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="user-menu">
+                            <ul>
+                                <asp:LoginView runat="server" ViewStateMode="Disabled">
+                                    <AnonymousTemplate>
+
+                                        <li><a runat="server" href="~/Account/Register"><i class="fa fa-user"></i>Register</a></li>
+                                        <li><a runat="server" href="~/Account/Login"><i class="glyphicon glyphicon-log-in"></i>Log in</a></li>
+
+                                    </AnonymousTemplate>
+                                    <LoggedInTemplate>
+
+                                        <li><a runat="server" href="~/Account/Manage" title="Manage your account"><i class="fa fa-user"></i>My Account</a></li>
+                                        <li>
+                                            <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText='<span class="glyphicon glyphicon-log-out"></span> Log Out' LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                        </li>
+
+                                    </LoggedInTemplate>
+                                </asp:LoginView>
+                                <li>
+                                    <asp:HyperLink runat="server" NavigateUrl="~/Admin/Index.aspx" ID="linkAdmin" Visible="false"><span class="glyphicon glyphicon-wrench"></span> Admin</asp:HyperLink></li>
+                                <li><a runat="server" href="~/Account/Wishlist.aspx"><i class="fa fa-heart"></i>Wishlist</a></li>
+                                <li><a runat="server" href="~/Shop/ShoppingCart.aspx"><span class="glyphicon glyphicon-shopping-cart"></span>My Cart</a></li>
+                                <li></li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5">
+                        <div class="header-right">
+                            <asp:Table runat="server" Width="100%" CellPadding="2">
+                                <asp:TableRow runat="server" Width="100%">
+                                    <asp:TableCell runat="server" Width="40.2px">
+                                        <span class="input-group-btn">
+                                            <asp:LinkButton runat="server" Width="100%" CssClass="btn btn-default" ID="LinkButton1" OnClick="SearchPosts_Click"><span class="glyphicon glyphicon-search"></span></asp:LinkButton>
+                                        </span>
+                                    </asp:TableCell>
+                                    <asp:TableCell runat="server" Width="55%">
+                                        <asp:TextBox Width="100%" runat="server" ID="txtSearch" CssClass="form-control" placeholder="Search for..." />
+                                    </asp:TableCell>
+                                    <asp:TableCell runat="server" Width="2.5%"></asp:TableCell>
+                                    <asp:TableCell runat="server" Width="20%">
+                                        <asp:DropDownList runat="server" ID="ddlCurreny" AutoPostBack="true" CssClass="btn-google" Width="100%" Height="100%">
+                                            <asp:ListItem Text="ZAR" Value="R" />
+                                            <asp:ListItem Text="USD" Value="$" />
+                                            <asp:ListItem Text="GBP" Value="£" />
+                                        </asp:DropDownList>
+                                    </asp:TableCell>
+                                    <asp:TableCell runat="server" Width="2.5%">
+
+                                    </asp:TableCell>
+                                    <asp:TableCell runat="server" Width="20%">
+                                        <asp:DropDownList runat="server" ID="ddlLanguage" AutoPostBack="true" CssClass="btn-google" Width="100%" Height="100%">
+                                            <asp:ListItem Text="English" Value="english" />
+                                            <asp:ListItem Text="Afrikaans" Value="afrikaan" />
+                                            <asp:ListItem Text="Zulu" Value="zulu" />
+                                            <asp:ListItem Text="Xhoza" Value="xhoza" />
+                                        </asp:DropDownList>
+                                    </asp:TableCell>
+                                </asp:TableRow>
+                            </asp:Table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End header area -->
+        <div class="site-branding-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="logo" style="max-width: 300px;">
+                            <h1 style="font-family: 'Lucida Calligraphy';"><a runat="server" href="~/">
+                                <u>e<span>Largesse</span></u>
+
+                            </a>
+                            </h1>
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="shopping-item">
+
+                            <a runat="server" href="~/Shop/ShoppingCart.aspx">Cart - <span class="cart-amunt">
+                                <asp:Label runat="server" ID="PreviewTotal" /></span> <i class="fa fa-shopping-cart"></i><span class="product-count">
+                                    <asp:Label runat="server" ID="PreviewQuantity" /></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End site branding area -->
+
+        <div class="mainmenu-area">
+            <div class="container">
+                <div class="row">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a runat="server" href="~/">Home</a></li>
+                            <li><a runat="server" href="About.aspx">About</a></li>
+                            <li><a runat="server" href="~/Shop/Index.aspx">Shop</a></li>
+                            <li><a runat="server" href="~/News/Index.aspx">News</a></li>
+                            <li><a runat="server" href="Contact.aspx">Contact</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li></li>
+                        </ul>
+
+                        <%-- <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                
+                            </li>
+                        </ul>--%>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End mainmenu area -->
+        <div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="footer-top-area">
+            <div class="zigzag-bottom"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="footer-about-us">
+                            <h2>e<span>Largesse</span></h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis sunt id doloribus vero quam laborum quas alias dolores blanditiis iusto consequatur, modi aliquid eveniet eligendi iure eaque ipsam iste, pariatur omnis sint! Suscipit, debitis, quisquam. Laborum commodi veritatis magni at?</p>
+                            <div class="footer-social">
+                                <a runat="server" href="https://www.facebook.com/ElectronicLargesse/" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a runat="server" href="https://www.twitter.com/eLargesse_SA" target="_blank"><i class="fa fa-twitter"></i></a>
+                                <a runat="server" href="https://www.youtube.com/subscription_center?add_user=eLargesse_Media" target="_blank"><i class="fa fa-youtube"></i></a>
+                                <a runat="server" href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                <a runat="server" href="#" target="_blank"><i class="fa fa-pinterest"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="footer-menu">
+                            <h2 class="footer-wid-title">User Navigation </h2>
+                            <ul>
+                                <li><a runat="server" href="Account/Manage.aspx">My account</a></li>
+                                <li><a runat="server" href="#">Order history</a></li>
+                                <li><a runat="server" href="Account/Wishlist.aspx">Wishlist</a></li>
+                                <li><a runat="server" href="#">Vendor contact</a></li>
+                                <li><a runat="server" href="Index.aspx">Front page</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="footer-menu">
+                            <h2 class="footer-wid-title">Categories</h2>
+
+                            <asp:Panel ID="pnlListCategories" runat="server"></asp:Panel>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="footer-newsletter">
+                            <h2 class="footer-wid-title">Newsletter</h2>
+                            <p>Sign up to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!</p>
+                            <div class="input-group input-group-lg">
+                                <asp:LinkButton runat="server" OnClick="Unnamed_Click" CssClass="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></asp:LinkButton>
+                                <asp:TextBox runat="server" placeholder="Type your email" ID="txtMailChimp" TextMode="Email" CssClass="form-control" aria-describedby="sizing-addon1" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End footer top area -->
+
+        <div class="footer-bottom-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="copyright">
+                            <p>&copy; <%:DateTime.Now.Year %> eLargesse. All Rights Reserved. Coded with <i class="fa fa-heart"></i>by <a href="http://wpexpand.com" target="_blank">WP Expand</a></p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <a runat="server" href="Privacy.aspx">Privacy</a> | <a runat="server" href="Terms.aspx">Terms of Use</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script type="text/javascript" src='<%=ResolveClientUrl("js/tm-scripts.js")%>'></script>
+</body>
+</html>
